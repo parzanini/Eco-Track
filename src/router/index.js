@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
 import Community from '../views/Community.vue';
+import UserPortal from "@/views/UserPortal.vue";
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/community',
     name: 'Community',
     component: Community
+  },
+  {
+    path: '/user-portal',
+    name: 'UserPortal',
+    component: UserPortal
   }
 ]
 
