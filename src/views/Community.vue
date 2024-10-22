@@ -4,7 +4,7 @@
 
 <template>
 
-  <div class="container flex-col align-center">
+  <div class="container flex-col align-center body">
 
 <h1 class="heading">Community Page</h1>
 
@@ -61,7 +61,7 @@
 
       <hr class="mx-4" />
 <!--    Leader board, table display -->
-    <div class="container flex flex-col">
+    <div class="container flex flex-col leaderboard">
       <h2 class="text-center mb-1">Leaderboard</h2>
 
 <!--      table of members, limit to 50 best -->
@@ -127,8 +127,16 @@ tbody {
   border-color: #955900;
   background-color: rgba(149, 89, 0, 0.2);
 }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Allow this section to grow */
+  border-right: 1px solid black;
+}
 .card-body2 {
-  border-left: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex:1;
 }
 hr {
   border-color: #218907;
@@ -141,5 +149,31 @@ tr {
   border-bottom: 1px solid black;
 }
 
-//TODO desktop rules
+/* rules for Desktop view, min width 1024 */
+@media (min-width: 1024px) {
+  .body {
+    width: 60%;
+    margin: auto auto 3em;
+  }
+  .badge {
+    width: 5em;
+    height: 5em;
+  }
+  .card{
+    font-size: 1.25em;
+    border-radius: 1.5em;
+    margin-bottom: 1em;
+  }
+  .card-body {
+    margin-left: 5em;
+  }
+  .leaderboard {
+    font-size: 1.5em;
+  }
+  .badgeThumbnail {
+    width: 2em;
+  }
+
+}
+
 </style>
