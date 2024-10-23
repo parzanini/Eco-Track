@@ -5,4 +5,5 @@
     <router-link to="/community">Community Page</router-link>
 	</div>
 </template>
-<script setup></script>
+<script setup>
+</script>

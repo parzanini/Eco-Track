@@ -1,12 +1,12 @@
 <script setup>
-import Navbar from './components/Navbar.vue';
+import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import { RouterView, useRoute } from 'vue-router';
 </script>
 
 <template>
-  <Navbar />
+  <Header />
   <Router-view />
-  <Footer v-if="useRoute().name !== 'Home'" />
+  <Footer />
 </template>
 
