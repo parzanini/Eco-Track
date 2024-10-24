@@ -6,4 +6,5 @@
     <router-link to="/user-portal">User Portal</router-link>
 	</div>
 </template>
-<script setup></script>
+<script setup>
+</script>

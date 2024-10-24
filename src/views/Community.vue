@@ -1,7 +1,9 @@
 <script setup>
 
+import Header from "@/components/Header.vue";
 </script>
-
+<Header />
+</script>
 <template>
 
   <div class="container flex-col align-center body">
