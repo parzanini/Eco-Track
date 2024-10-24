@@ -7,6 +7,7 @@ import Education from "@/views/Education.vue";
 
 
 
+
 const routes = [
   {
     path: '/',
@@ -27,6 +28,11 @@ const routes = [
     path: '/community',
     name: 'Community',
     component: Community
+  },
+  {
+    path: '/user-portal',
+    name: 'UserPortal',
+    component: UserPortal
   },
   {
     path: '/education',
