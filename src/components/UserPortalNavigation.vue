@@ -71,6 +71,7 @@ function portalNavigationManager(id){
     background-color: #36ba24;
     grid-template-columns: 1fr;
     padding-top: 0.5em;
+    margin-bottom: 0;
   }
   .l-item {
     text-align: start;
