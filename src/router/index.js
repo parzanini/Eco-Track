@@ -4,8 +4,7 @@ import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
 import Community from "@/views/Community.vue";
 import Education from "@/views/Education.vue";
-
-
+import UserPortal from "@/views/UserPortal.vue";
 
 
 const routes = [

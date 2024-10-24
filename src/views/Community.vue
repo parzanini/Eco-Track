@@ -1,9 +1,12 @@
+<!--Date Created: 17/10/2024-->
+<!--Author: K00288477 Gary O'Connor-->
+
 <script setup>
 
 import Header from "@/components/Header.vue";
 </script>
 <Header />
-</script>
+
 <template>
 
   <div class="container flex-col align-center body">

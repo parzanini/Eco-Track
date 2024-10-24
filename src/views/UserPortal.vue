@@ -1,3 +1,6 @@
+<!--Date Created: 22/10/2024-->
+<!--Author: K00288477 Gary O'Connor-->
+
 <!-- UserPortal.vue -->
 <script setup>
 import UserPortalNavigation from "@/components/UserPortalNavigation.vue";
@@ -34,7 +37,7 @@ onMounted(() => {
       <UserPortalNavigation @update-tab="handleTabUpdate"/>
       </div>
 
-    <div class="content">
+    <div class="content mb-16">
       <!-- content containers with corresponding IDs -->
       <div id="profile-content" class="portal-content content">
         <UserProfile />

@@ -19,7 +19,7 @@
           <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/79f980ec275542a791ab5890f8049f1d94f7e693dff6038fbf19fda1c0f76543?placeholderIfAbsent=true&apiKey=527389ec12184d8eb640ce74d588a626" alt="" class="object-contain max-w-16 aspect-square w-[125px] badge" />
         </div>
       </div>
-      <hr class="shrink-0 mt-4 max-w-full h-px border border-black border-solid w-[838px]" />
+      <hr class="shrink-0 mt-4 w-full border border-black border-solid w-[838px]" />
 
       <!--  form: personal details-->
       <!--user will be able to update their personal details from here-->
