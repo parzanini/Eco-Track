@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.1.5",
     "alpinejs": "^3.14.1",
     "portofolio": "file:",
     "tw-elements": "^2.0.0",

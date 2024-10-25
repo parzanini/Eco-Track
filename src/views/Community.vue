@@ -6,7 +6,6 @@
 import Header from "@/components/Header.vue";
 </script>
 <Header />
-
 <template>
 
   <div class="container flex-col align-center body">
