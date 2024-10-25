@@ -13,8 +13,7 @@
             <section class="py-12 bg-white">
         <div class="container mx-auto">
           <ExpandableSection title="Why Recycling Matters" :defaultOpen="true">
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6">
-            
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4 md:m-0">
               <div class="md:w-1/2 border-l-4 border-green-500 rounded-5-lg pl-4 ">
                 <p class="text-black mt-4">
                   Recycling plays a critical role in reducing waste, conserving
@@ -46,7 +45,7 @@
             <section class="py-12 bg-white">
         <div class="container mx-auto">
           <ExpandableSection title="Key Benefits of Recycling">
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
               <div class="md:w-1/2">
                    <ol class="list-decimal space-y-4 text-black">
                   <li><strong>Conserving Natural Resources:</strong> Recycling reduces the demand for raw materials like trees, water, and minerals, helping preserve our planet's resources for future generations.</li>
@@ -65,7 +64,7 @@
             <section class="py-12 bg-white">
         <div class="container mx-auto">
           <ExpandableSection title="What Can Be Recycled?">
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
               <div class="md:w-1/2">
                 <ul class="list-disclist-inside space-y-4 text-black">
                   <li><strong>Plastics:</strong> Bottles, containers, and packaging made from recyclable plastics can be reused to produce new items. Sorting by type (like PET or HDPE) is crucial.</li>
@@ -85,7 +84,7 @@
             <section class="py-12 bg-white">
         <div class="container mx-auto">
           <ExpandableSection title="How to Recycle Correctly">
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
               <div class="md:w-1/2">
                 <ol class="list-decimal  space-y-4 text-black">
                   <li><strong>Clean & Dry Items:</strong> Make sure your recyclables are clean and dry. Food waste, liquids, and grease can contaminate an entire batch of recyclables, making them unusable.</li>
@@ -104,7 +103,7 @@
        <section class="py-12 bg-white">
         <div class="container mx-auto">
           <ExpandableSection title="How EcoTrack Can Help You Make a Difference">
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
             
               <div class="md:w-1/2 border-l-4 border-green-500 rounded-5-lg pl-4">
                 <p class="text-black  mt-4">
@@ -138,7 +137,7 @@
        <section class="py-12 bg-white">
         <div class="container mx-auto">
           <ExpandableSection title="The Importance of Reducing Waste">
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
             
               <div class="md:w-1/2">
                 <p class="text-black  mt-4">
@@ -165,7 +164,7 @@
        <section class="py-12 bg-white">
         <div class="container mx-auto">
           <ExpandableSection title="Recycling Facts">
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
             
               <div class="md:w-1/2">
                 <p class="text-black  mt-4">
@@ -184,7 +183,6 @@
       </section>
 
 
-                 <!-- Section 9 -->
               
      
              <!-- Section 8 -->
