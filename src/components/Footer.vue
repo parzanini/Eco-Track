@@ -103,9 +103,7 @@
 </template>
 
 <style scoped>
-builder-component {
-  max-width: none !important;
-}/* Media queries for responsive styling */
+/* Media queries for responsive styling */
 .desktop-footer {
   display: flex; /* Show desktop navbar */
 }
