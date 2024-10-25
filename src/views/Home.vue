@@ -5,7 +5,7 @@
 	<div>
 <!--		<h1>Home</h1>-->
 <!--		<p>This is the home page</p>-->
-    <router-link to="/community">Community Page</router-link>
+
     <!-- Hero Section -->
     <div class="hero_image">
       <div class="hero-text">
@@ -18,12 +18,12 @@
 
 
 
-      <a href="sign-up.html"><div class="portal user-portal">
+      <router-link to="/user-portal"><div class="portal user-portal">
         <img src="../../public/imgs/headerimg/user%20login.png" alt="user login">
         <h3 class="module-title">User Portal</h3>
         <p>View your profile, current badges, and streaks, and generate detailed reports.</p>
       </div>
-      </a>
+      </router-link>
       <a href="sign-up.html"><div class="portal organization-portal">
         <img src="../../public/imgs/headerimg/orginaizationPortal.png" alt="user login">
         <h3 class="module-title">Organization Portal</h3>
