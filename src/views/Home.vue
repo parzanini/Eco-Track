@@ -33,7 +33,8 @@
     </div>
 	</div>
 </template>
-<style setup>
+
+<style scoped>
 body {
   display: flex;
   flex-direction: column;
@@ -42,8 +43,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-
 
 * {
   box-sizing: border-box;

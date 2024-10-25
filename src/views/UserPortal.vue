@@ -30,7 +30,6 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <h1 class="heading">User Portal</h1>
     <div class="container main-container">
 <!--      call function to update tabs-->
       <div class="nav">
@@ -63,10 +62,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.heading {
-  font-size: 1.25em;
-  text-align: center;
-}
 
 .portal-content {
   display: none;
@@ -79,13 +74,12 @@ onMounted(() => {
 @media (min-width: 1024px){
   .main-container {
     display: grid;
-    width: 100%;
     grid-template-columns: 15% 85%;
   }
   .content {
     margin-top: 1rem;
     padding-left: 1rem;
-    padding-right: 4rem;
+    padding-right: 1rem;
     min-height: 100%;
     min-width: 100%;
   }
