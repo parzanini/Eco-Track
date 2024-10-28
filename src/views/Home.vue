@@ -9,14 +9,14 @@
     <!-- Hero Section -->
     <div class="hero_image">
       <div class="hero-text">
-        <a href= "#login"><button>Use Our Waste Tracker</button></a>
+<!--        <a href= "#login"><button>Use Our Waste Tracker</button></a>-->
+<!--      link to waste logger-->
+        <router-link to="/user-waste-form" class="userWasteForm">Use Our Waste Tracker</router-link>
       </div>
     </div>
 
     <!-- login Section -->
     <div class="grid-container">
-
-
 
       <router-link to="/user-portal"><div class="portal user-portal">
         <img src="../../public/imgs/headerimg/user%20login.png" alt="user login">
@@ -50,7 +50,7 @@ body {
 
 
 .hero_image {
-  background-image: url("../../public/imgs/headerimg/headerIMG.png");
+  /*background-image: url("../../public/imgs/headerimg/headerIMG.png"); error, please fix paths  */
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
@@ -68,7 +68,7 @@ body {
   color: white;
 }
 
-.hero-text button {
+.hero-text .userWasteForm {
   border: none;
   outline: 0;
   display: inline-block;

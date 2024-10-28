@@ -5,6 +5,7 @@ import Contact from '../views/Contact.vue'
 import Community from "@/views/Community.vue";
 import Education from "@/views/Education.vue";
 import UserPortal from "@/views/UserPortal.vue";
+import UserWasteLogForm from "@/views/UserWasteLogForm.vue";
 
 
 const routes = [
@@ -37,6 +38,11 @@ const routes = [
     path: '/education',
     name: 'Education',
     component: Education
+  },
+  {
+    path: '/user-waste-form',
+    name: 'UserWasteLogForm',
+    component: UserWasteLogForm
   }
 ]
 
