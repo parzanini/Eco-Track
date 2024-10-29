@@ -3,9 +3,7 @@
 </script>
 <template>
 	<div>
-<!--		<h1>Home</h1>-->
-<!--		<p>This is the home page</p>-->
-    <router-link to="/community">Community Page</router-link>
+
     <!-- Hero Section -->
     <div class="hero_image">
       <div class="hero-text">
@@ -112,12 +110,17 @@ img {
   padding: 1em;
   border-radius: 8px;
   box-shadow: 0 0 1em grey;
+  border: 1px double black;
 
+}
+
+a {
+  text-decoration: none;
 }
 
 @media  screen and (min-width: 992px) /*desktop */ {
   .grid-container {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
   }
 
 }
