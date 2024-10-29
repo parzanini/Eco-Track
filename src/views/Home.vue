@@ -4,24 +4,25 @@
 <template>
 	<div>
 
+
     <!-- Hero Section -->
     <div class="hero_image">
       <div class="hero-text">
-        <a href= "#login"><button>Use Our Waste Tracker</button></a>
+<!--        <a href= "#login"><button>Use Our Waste Tracker</button></a>-->
+<!--      link to waste logger-->
+        <router-link to="/user-waste-form" class="userWasteForm">Use Our Waste Tracker</router-link>
       </div>
     </div>
 
     <!-- login Section -->
     <div class="grid-container">
 
-
-
-      <a href="sign-up.html"><div class="portal user-portal">
+      <router-link to="/user-portal"><div class="portal user-portal">
         <img src="../../public/imgs/headerimg/user%20login.png" alt="user login">
         <h3 class="module-title">User Portal</h3>
         <p>View your profile, current badges, and streaks, and generate detailed reports.</p>
       </div>
-      </a>
+      </router-link>
       <a href="sign-up.html"><div class="portal organization-portal">
         <img src="../../public/imgs/headerimg/orginaizationPortal.png" alt="user login">
         <h3 class="module-title">Organization Portal</h3>
@@ -31,7 +32,8 @@
     </div>
 	</div>
 </template>
-<style setup>
+
+<style scoped>
 body {
   display: flex;
   flex-direction: column;
@@ -41,15 +43,13 @@ body {
   padding: 0;
 }
 
-
-
 * {
   box-sizing: border-box;
 }
 
 
 .hero_image {
-  background-image: url("../../public/imgs/headerimg/headerIMG.png");
+  /*background-image: url("../../public/imgs/headerimg/headerIMG.png"); error, please fix paths  */
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
@@ -67,7 +67,7 @@ body {
   color: white;
 }
 
-.hero-text button {
+.hero-text .userWasteForm {
   border: none;
   outline: 0;
   display: inline-block;

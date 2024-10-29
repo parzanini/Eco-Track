@@ -26,8 +26,8 @@ function portalNavigationManager(id){
 </script>
 
 <template>
-  <div class="container grid-container my-4 px-2">
-
+  <div class="container grid-container66 px-2">
+      <h1 class="heading font-semibold text-start text-[#ffffff] mb-1">User Portal</h1>
       <div class="l-item active" id="up-1" @click="portalNavigationManager('up-1')">Profile</div>
       <div class="l-item" id="up-2" @click="portalNavigationManager('up-2')">Reports</div>
       <div class="l-item" id="up-3" @click="portalNavigationManager('up-3')">Badges</div>
@@ -41,7 +41,10 @@ function portalNavigationManager(id){
 </template>
 
 <style scoped>
-.grid-container {
+.heading{
+  display: none;
+}
+.grid-container66 {
   overflow-x: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -67,7 +70,10 @@ function portalNavigationManager(id){
 
 /* desktop styles */
 @media (min-width: 1024px) {
-  .grid-container {
+  .heading{
+    display: block;
+  }
+  .grid-container66 {
     background-color: #36ba24;
     grid-template-columns: 1fr;
     padding-top: 0.5em;
