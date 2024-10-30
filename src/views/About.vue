@@ -45,7 +45,8 @@
     </div>
 	</div>
 </template>
-<style setup>
+
+<style scoped>
 body {
   display: flex;
   flex-direction: column;
