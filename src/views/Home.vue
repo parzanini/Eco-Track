@@ -6,13 +6,12 @@
   <div>
 
     <!-- Hero Section -->
-    <div class="relative h-[500px] bg-cover bg-center py-24" style="background-image: url('../../public/imgs/headerimg/headerIMG.png');">
-      <div class="absolute top-[70%] left-[10%] transform -translate-x-1/2 -translate-y-1/2 text-white">
-        <router-link to="/user-waste-form" class="inline-block px-6 py-3 bg-blue-700 text-white text-center rounded-lg hover:bg-blue-500 transition-colors duration-300">
-          Use Our Waste Tracker
-        </router-link>
-      </div>
-    </div>
+    <section class="flex relative flex-col items-start px-20 pt-96 pb-11 w-full text-3xl text-center text-white min-h-[584px] max-md:px-5 max-md:pt-24 max-md:max-w-full">
+      <img loading="lazy" src="/imgs/headerimg/headerIMG.png" alt="Background image" class="object-cover absolute inset-0 size-full" />
+      <router-link to="/user-waste-form" class="relative px-12 py-6 max-w-full bg-blue-700 rounded-xl w-[293px] max-md:px-5">
+        Use Our Waste Tracker
+      </router-link>
+    </section>
 
     <!-- Login Section -->
     <div class="grid gap-4 p-4 w-[90%] mx-auto lg:grid-cols-2">
