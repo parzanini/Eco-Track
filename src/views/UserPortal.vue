@@ -39,22 +39,22 @@ onMounted(() => {
     <div class="content mb-16">
       <!-- content containers with corresponding IDs -->
       <div id="profile-content" class="portal-content content">
-        <UserProfile />
+        <UserProfile class="min-h-screen"/>
       </div>
       <div id="reports-content" class="portal-content content">
         <UserReports />
       </div>
-      <div id="badges-content" class="portal-content content">
-        <UserBadges />
-      </div>
-      <div id="milestones-content" class="portal-content content">
-        <UserMilestones />
-      </div>
-      <div id="community-content" class="portal-content content">
-        <UserCommunity />
-      </div>
+<!--      <div id="badges-content" class="portal-content content">-->
+<!--        <UserBadges />-->
+<!--      </div>-->
+<!--      <div id="milestones-content" class="portal-content content">-->
+<!--        <UserMilestones />-->
+<!--      </div>-->
+<!--      <div id="community-content" class="portal-content content">-->
+<!--        <UserCommunity />-->
+<!--      </div>-->
       <div id="logout-content" class="portal-content content">
-        <UserLogOut />
+        <UserLogOut class="min-h-screen"/>
       </div>
     </div>
     </div>
