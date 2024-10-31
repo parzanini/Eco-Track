@@ -69,7 +69,7 @@ import Header from "@/components/Header.vue";
       <h2 class="text-center mb-1">Leaderboard</h2>
 
 <!--      table of members, limit to 50 best -->
-      <table class="mb-4 mx-1">
+      <table class="mb-4 mx-1 text-2xl">
         <thead>
         <tr>
           <th>Rank</th>
@@ -83,11 +83,40 @@ import Header from "@/components/Header.vue";
         <tbody>
         <tr>
           <td class="text-center">1</td>
-          <td class="flex justify-center"><img src="/imgs/badges/cil_badgegold-thumbnail.png" alt="gold badge" class="badgeThumbnail"></td>
+          <td class="flex justify-center my-1"><img src="/imgs/badges/cil_badgegold-thumbnail.png" alt="gold badge" class="badgeThumbnail"></td>
           <td class="text-start">Gary.oconnor94</td>
           <td class="text-start">98 Days</td>
           <td class="text-start">156 Days</td>
         </tr>
+        <tr>
+          <td class="text-center">2</td>
+          <td class="flex justify-center my-1"><img src="/imgs/badges/cil_badgegold-thumbnail.png" alt="gold badge" class="badgeThumbnail"></td>
+          <td class="text-start">skye.riley02</td>
+          <td class="text-start">77 Days</td>
+          <td class="text-start">89 Days</td>
+        </tr>
+        <tr>
+          <td class="text-center">3</td>
+          <td class="flex justify-center my-1"><img src="/imgs/badges/cil_badgesilver-thumbnail.png" alt="gold badge" class="badgeThumbnail"></td>
+          <td class="text-start">sweeney_Todd17</td>
+          <td class="text-start">44 Days</td>
+          <td class="text-start">44 Days</td>
+        </tr>
+        <tr>
+          <td class="text-center">4</td>
+          <td class="flex justify-center my-1"><img src="/imgs/badges/cil_badgesilver-thumbnail.png" alt="gold badge" class="badgeThumbnail"></td>
+          <td class="text-start">Derrick.trotter66</td>
+          <td class="text-start">41 Days</td>
+          <td class="text-start">110 Days</td>
+        </tr>
+        <tr>
+          <td class="text-center">5</td>
+          <td class="flex justify-center my-1"><img src="/imgs/badges/cil_badgebronze-thumbnail.png" alt="gold badge" class="badgeThumbnail"></td>
+          <td class="text-start">Jaina_Proudmore11</td>
+          <td class="text-start">30 Days</td>
+          <td class="text-start">111 Days</td>
+        </tr>
+
         </tbody>
       </table>
     </div>
@@ -176,6 +205,10 @@ tr {
   }
   .badgeThumbnail {
     width: 2em;
+  }
+  table {
+    font-size: 1.875rem/* 30px */;
+    line-height: 2.25rem/* 36px */;
   }
 
 }

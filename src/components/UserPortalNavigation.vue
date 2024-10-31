@@ -30,9 +30,9 @@ function portalNavigationManager(id){
       <h1 class="heading font-semibold text-start text-[#ffffff] mb-1">User Portal</h1>
       <div class="l-item active" id="up-1" @click="portalNavigationManager('up-1')">Profile</div>
       <div class="l-item" id="up-2" @click="portalNavigationManager('up-2')">Reports</div>
-      <div class="l-item" id="up-3" @click="portalNavigationManager('up-3')">Badges</div>
-      <div class="l-item" id="up-4" @click="portalNavigationManager('up-4')">Milestones</div>
-      <div class="l-item" id="up-5" @click="portalNavigationManager('up-5')">Community</div>
+<!--      <div class="l-item" id="up-3" @click="portalNavigationManager('up-3')">Badges</div>-->
+<!--      <div class="l-item" id="up-4" @click="portalNavigationManager('up-4')">Milestones</div>-->
+<!--      <div class="l-item" id="up-5" @click="portalNavigationManager('up-5')">Community</div>-->
       <div class="l-item" id="up-6" @click="portalNavigationManager('up-6')">Log Out</div>
 
   </div>
