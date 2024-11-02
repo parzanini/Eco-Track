@@ -21,5 +21,5 @@ EcoTrack empowers users to manage their waste efficiently and make a real impact
 
 - **Jira:** [EcoTrack Project Board](https://isd3.atlassian.net/jira/software/c/projects/IGP3/boards/3?assignee=712020%3A8f538baa-d467-49e8-816a-ed27b526fe4c&useStoredSettings=true)
 - **Project Information & Log File:** [EcoTrack Group Project Documentation](https://tusmm-my.sharepoint.com/:w:/r/personal/k00288285_student_tus_ie/Documents/Group%201%20ISD3%20Project.docx?d=w7c847f3d594b400dadb00e47088028ee&csf=1&web=1&e=VXAnQo)
-- **Presentation File:** [EcoTrack Presentation](https://tusmm-my.sharepoint.com/:p:/r/personal/k00288477_student_tus_ie/Documents/Presentation%20-%20EcoTrack.pptx?d=wb5180564b02e4ed8958d6ec90aa3d27a&csf=1&web=1&e=sqqinj)
+- **Live Demo:** [EcoTrack](https://ecotracktus.netlify.app/)
 
