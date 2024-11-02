@@ -11,10 +11,18 @@
         <main class="bg-gray-100">
             <!-- Section 1 -->
             <section class="py-12 bg-white">
-        <div class="container mx-auto">
-          <ExpandableSection title="Why Recycling Matters" :defaultOpen="true">
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4 md:m-0">
-              <div class="md:w-1/2 border-l-4 border-green-500 rounded-5-lg pl-4 ">
+        <div class="container mx-auto mt-10">
+            <h2 class="text-lg font-bold text-center mb-6 border-b-4 border-green-500 pb-2 w-64 mx-auto">Why Recycling Matters</h2>  
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-3 md:m-0">  
+              <div class="md:w-1/2">
+                  <img
+                src="/imgs/eduPageImgs/recycle.jpg"
+                alt="Recycling Image"
+                class="w-full h-auto md:w-auto md:h-74 rounded-lg shadow-md mx-auto"
+                
+              />
+              </div>
+              <div class="md:w-2/3 p-6 pr-12 ">
                 <p class="text-black mt-4">
                   Recycling plays a critical role in reducing waste, conserving
                   natural resources, and lowering pollution. By reusing
@@ -31,22 +39,18 @@
                   set waste reduction goals, monitor your progress, and
                   contribute to a cleaner, greener Earth.
                 </p>
-                  <img
-                src="/imgs/eduPageImgs/recycling.jpg"
-                alt="Recycling Image"
-                class="w-full md:w-1/2 rounded-lg shadow-md mx-auto"
-              />
-              </div>
+              </div>   
+              
             </div>
-          </ExpandableSection>
         </div>
       </section>
-            <!-- Expanding Section 2-->
+            <!-- Section 2-->
             <section class="py-12 bg-white">
-        <div class="container mx-auto">
-          <ExpandableSection title="Key Benefits of Recycling">
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
-              <div class="md:w-1/2">
+            <div class="container mx-auto">
+          
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4 md:m-0">
+              <div class="md:w-1/2 m-5 p-5">
+                <h2 class="text-lg font-bold text-center mb-6">Key Benefits of Recycling</h2>
                    <ol class="list-decimal space-y-4 text-black">
                   <li><strong>Conserving Natural Resources:</strong> Recycling reduces the demand for raw materials like trees, water, and minerals, helping preserve our planet's resources for future generations.</li>
                   <li><strong>Energy Savings:</strong> Recycling uses significantly less energy compared to producing new products from raw materials. For example, recycling aluminum saves 95% of the energy required to make the same product from new aluminum.</li>  
@@ -54,18 +58,8 @@
                   <li><strong>Climate Change Mitigation:</strong> By reducing the energy required to create new products, recycling lowers greenhouse gas emissions, helping to combat global warming.</li>  
                 </ol>
               </div>
-            </div>
-          </ExpandableSection>
-        </div>
-      </section>
-            
-            
-            <!-- Expanding Section 3-->
-            <section class="py-12 bg-white">
-        <div class="container mx-auto">
-          <ExpandableSection title="What Can Be Recycled?">
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
-              <div class="md:w-1/2">
+              <div class="md:w-1/2 border-l-4 border-green-500 m-5 p-5 pl-8">
+                <h2 class="text-lg font-bold text-center mb-6">What Can Be Recycled?</h2>
                 <ul class="list-disclist-inside space-y-4 text-black">
                   <li><strong>Plastics:</strong> Bottles, containers, and packaging made from recyclable plastics can be reused to produce new items. Sorting by type (like PET or HDPE) is crucial.</li>
                   <li><strong>Paper & Cardboard:</strong> Newspapers, magazines, cardboard boxes, and office paper can be recycled to make new paper products, reducing deforestation.</li>  
@@ -75,37 +69,45 @@
                    </ul>
               </div>
             </div>
-          </ExpandableSection>
         </div>
       </section>
+            
+            
+            <!-- Section 3-->
 
-
-            <!-- Expanding Section 4-->
             <section class="py-12 bg-white">
-        <div class="container mx-auto">
-          <ExpandableSection title="How to Recycle Correctly">
+              <div class="container mx-auto ">
+                <h2 class="text-lg font-bold text-center mb-6 mt-10 border-b-4 border-green-500 pb-2 w-64 mx-auto">How to Recycle Correctly</h2>
             <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
-              <div class="md:w-1/2">
+              <div class="md:w-2/3 m-5 p-10">
                 <ol class="list-decimal  space-y-4 text-black">
                   <li><strong>Clean & Dry Items:</strong> Make sure your recyclables are clean and dry. Food waste, liquids, and grease can contaminate an entire batch of recyclables, making them unusable.</li>
                   <li><strong>Sort by Category:</strong> Many recycling centers require sorting materials like plastic, metal, and paper into separate bins. Sorting increases efficiency and ensures recyclables are processed correctly.</li>  
                   <li><strong>Check Local Guidelines:</strong> Recycling rules vary by location. Always check your local recycling guidelines to make sure you're following proper procedures.</li>  
                    </ol>
               </div>
+              <div class="md:w-1/3">
+                  <img
+                src="/imgs/eduPageImgs/bins.jpg"
+                alt="Recycling Image"
+                class="w-full h-auto md:w-auto md:h-74 rounded-lg shadow-md mx-auto"
+                
+              />
+              </div>
             </div>
-          </ExpandableSection>
+    
         </div>
       </section>
             
             
 
-       <!-- Section 5 -->
+       <!-- Section 4 -->
        <section class="py-12 bg-white">
         <div class="container mx-auto">
           <ExpandableSection title="How EcoTrack Can Help You Make a Difference">
             <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
             
-              <div class="md:w-1/2 border-l-4 border-green-500 rounded-5-lg pl-4">
+              <div class="md:w-2/3 border-l-4 border-green-500 rounded-5-lg pl-4">
                 <p class="text-black  mt-4">
                   Recycling is essential, but sometimes staying on top of your efforts can be challenging. 
                   That's where EcoTrack comes in. Our platform helps you manage your recycling goals, track your progress, and celebrate your achievements with fun, engaging tools.
@@ -133,13 +135,13 @@
         </div>
       </section>
 
-       <!-- Section 6 -->
+       <!-- Section 5-->
        <section class="py-12 bg-white">
         <div class="container mx-auto">
           <ExpandableSection title="The Importance of Reducing Waste">
             <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
             
-              <div class="md:w-1/2">
+              <div class="md:w-2/3">
                 <p class="text-black  mt-4">
                   While recycling is crucial, reducing the amount of waste we generate is just as important. Here are some strategies to reduce waste:
                 </p>
@@ -148,11 +150,13 @@
                   <li><strong>Composting:</strong> Organic waste, like food scraps, can be composted to enrich soil rather than being sent to landfills.</li>  
                   <li><strong>Repair Instead of Replace:</strong> Fix broken items when possible to extend their lifespan and avoid waste.</li>  
                    </ul>
-                   <img
+               
+                   <!-- <img
                       src="/imgs/eduPageImgs/recycling2.jpg"
                       alt="Recycling Image"
-                      class="w-full md:w-1/2 rounded-lg shadow-md mx-auto mt-6"
-                    />
+                      class="w-full md:w-1/2 rounded-lg shadow-md mx-auto mt-6 "
+                    /> -->
+
               </div>
             </div>
           </ExpandableSection>
@@ -160,13 +164,13 @@
       </section>
 
 
-       <!-- Section 7 -->
+       <!-- Section 6 -->
        <section class="py-12 bg-white">
         <div class="container mx-auto">
           <ExpandableSection title="Recycling Facts">
             <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
             
-              <div class="md:w-1/2">
+              <div class="md:w-2/3">
                 <p class="text-black  mt-4">
                   While recycling is crucial, reducing the amount of waste we generate is just as important. Here are some strategies to reduce waste:
                 </p>
@@ -185,7 +189,7 @@
 
               
      
-             <!-- Section 8 -->
+             <!-- Section 7-->
             <section class="py-12 bg-white">
                 <div class="container mx-auto">
                     <h3 class="text-lg font-bold text-center mb-6">What are the EU targets for sustainability?</h3>
