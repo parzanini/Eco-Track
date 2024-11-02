@@ -16,7 +16,7 @@
             <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-3 md:m-0">  
               <div class="md:w-1/2">
                   <img
-                src="/imgs/eduPageImgs/recycle.jpg"
+                src="/imgs/eduPageImgs/recycling2.jpg"
                 alt="Recycling Image"
                 class="w-full h-auto md:w-auto md:h-74 rounded-lg shadow-md mx-auto"
                 
@@ -44,7 +44,35 @@
             </div>
         </div>
       </section>
-            <!-- Section 2-->
+<!-- Section 2-->
+      <section class="py-12 bg-white">
+              <div class="container mx-auto ">
+                <h2 class="text-lg font-bold text-center mb-6 border-b-4 border-green-500 pb-2 w-64 mx-auto">How to Recycle Correctly</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
+              <div class="md:w-2/3 m-5 p-10">
+                <ol class="list-decimal  space-y-4 text-black">
+                  <li><strong>Clean & Dry Items:</strong> Make sure your recyclables are clean and dry. Food waste, liquids, and grease can contaminate an entire batch of recyclables, making them unusable.</li>
+                  <li><strong>Sort by Category:</strong> Many recycling centers require sorting materials like plastic, metal, and paper into separate bins. Sorting increases efficiency and ensures recyclables are processed correctly.</li>  
+                  <li><strong>Check Local Guidelines:</strong> Recycling rules vary by location. Always check your local recycling guidelines to make sure you're following proper procedures.</li>  
+                   </ol>
+              </div>
+              <div class="md:w-1/3">
+                  <img
+                src="/imgs/eduPageImgs/bins.jpg"
+                alt="Recycling Image"
+                class="w-full h-auto md:w-auto md:h-74 rounded-lg shadow-md mx-auto"
+                
+              />
+              </div>
+            </div>
+    
+        </div>
+      </section>
+            
+
+
+
+            <!-- Section 3-->
             <section class="py-12 bg-white">
             <div class="container mx-auto">
           
@@ -72,33 +100,9 @@
         </div>
       </section>
             
-            
-            <!-- Section 3-->
+          
 
-            <section class="py-12 bg-white">
-              <div class="container mx-auto ">
-                <h2 class="text-lg font-bold text-center mb-6 mt-10 border-b-4 border-green-500 pb-2 w-64 mx-auto">How to Recycle Correctly</h2>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-6 p-6 m-4">
-              <div class="md:w-2/3 m-5 p-10">
-                <ol class="list-decimal  space-y-4 text-black">
-                  <li><strong>Clean & Dry Items:</strong> Make sure your recyclables are clean and dry. Food waste, liquids, and grease can contaminate an entire batch of recyclables, making them unusable.</li>
-                  <li><strong>Sort by Category:</strong> Many recycling centers require sorting materials like plastic, metal, and paper into separate bins. Sorting increases efficiency and ensures recyclables are processed correctly.</li>  
-                  <li><strong>Check Local Guidelines:</strong> Recycling rules vary by location. Always check your local recycling guidelines to make sure you're following proper procedures.</li>  
-                   </ol>
-              </div>
-              <div class="md:w-1/3">
-                  <img
-                src="/imgs/eduPageImgs/bins.jpg"
-                alt="Recycling Image"
-                class="w-full h-auto md:w-auto md:h-74 rounded-lg shadow-md mx-auto"
-                
-              />
-              </div>
-            </div>
-    
-        </div>
-      </section>
-            
+           
             
 
        <!-- Section 4 -->
