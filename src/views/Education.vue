@@ -7,7 +7,6 @@
 
 <template>
    <div>
-        <Header></Header>
         <main class="bg-gray-100">
             <!-- Section 1 -->
             <section class="py-12 bg-white">
@@ -194,7 +193,7 @@
               
      
              <!-- Section 7-->
-            <section class="py-12 bg-white">
+            <section class="mx-4 py-12 bg-white">
                 <div class="container mx-auto">
                     <h3 class="text-lg font-bold text-center mb-6">What are the EU targets for sustainability?</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -226,7 +225,6 @@
         </div>
       </section>
     </main>
-    <Footer></Footer>
     </div>
 
 </template>
