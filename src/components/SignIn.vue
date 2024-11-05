@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" @click="closeModal">
+  <div v-if="showModal" class="container-signin fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" @click="closeModal">
     <main class="relative flex flex-col text-3xl text-black max-w-[578px] z-50" @click.stop>
       <section class="flex flex-col px-8 py-9 w-full bg-white border-black border-solid border-[3px] rounded-[30px] max-md:px-5 max-md:max-w-full">
         <header class="flex gap-10 self-center max-w-full text-6xl text-center w-[386px] max-md:text-4xl">
@@ -68,3 +68,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+/*.container-signin {
+  z-index: 999;
+  margin-top: 15em;
+  height: 20%;
+}*/
+
+</style>

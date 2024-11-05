@@ -3,34 +3,112 @@
 </script>
 
 <template>
-  <div>
-
     <!-- Hero Section -->
-    <section class="flex relative flex-col items-start px-20 pt-96 pb-11 w-full text-3xl text-center text-white min-h-[584px] max-md:px-5 max-md:pt-24 max-md:max-w-full">
-      <img loading="lazy" src="/imgs/headerimg/headerIMG.png" alt="Background image" class="object-cover absolute inset-0 size-full" />
-      <router-link to="/user-waste-form" class="relative px-12 py-6 max-w-full bg-blue-700 rounded-xl w-[293px] max-md:px-5">
-        Use Our Waste Tracker
-      </router-link>
-    </section>
+    <div class="hero_image">
+      <div class="hero-text">
+        <h1 class="text-center text-2xl">EcoTrack - Waste Management Solution</h1>
+        <router-link to="/user-waste-form" class="bg-[#0047ff] rounded-md p-3 text-center hero-link">Use Our Waste Tracker</router-link>
+      </div>
+  </div>
 
-    <!-- Login Section -->
-    <div class="grid gap-4 p-4 w-[90%] mx-auto lg:grid-cols-2">
-      <router-link to="/user-portal" class="portal bg-green-100 p-4 rounded-lg shadow-lg border-2 border-double border-black text-black text-center">
-        <img src="../../public/imgs/headerimg/user%20login.png" alt="user login" class="mx-auto mb-4" />
+<!--Portal section-->
+    <div class="portal-container flex flex-col m-4">
+
+     <div class="user-portal mb-4 flex-1 flex flex-col bg-green-100 p-4 rounded-lg shadow-lg border-2 border-double border-black text-black text-center">
+       <router-link to="/user-portal">
+        <img src="../../public/imgs/headerimg/user%20login.png" alt="user portal" class="mx-auto mb-4">
         <h3 class="text-xl font-bold mb-2">User Portal</h3>
         <p>View your profile, current badges, and streaks, and generate detailed reports.</p>
-      </router-link>
+       </router-link>
+      </div>
 
-      <a href="sign-up.html" class="portal bg-green-100 p-4 rounded-lg shadow-lg border-2 border-double border-black text-black text-center">
-        <img src="../../public/imgs/headerimg/orginaizationPortal.png" alt="organization login" class="mx-auto mb-4" />
-        <h3 class="text-xl font-bold mb-2">Organization Portal</h3>
-        <p>View your profile, current badges, and streaks, and generate detailed reports.</p>
-      </a>
+
+    <div class="user-portal mb-4 flex-1 bg-green-100 p-4 rounded-lg shadow-lg border-2 border-double border-black text-black text-center">
+      <router-link to="">
+        <img src="../../public/imgs/headerimg/orginaizationPortal.png" alt=" login" class="mx-auto mb-4" />
+        <h3 class="text-xl font-bold mb-2">Organisation Portal</h3>
+        <p>View your Companies profile, current badges, and streaks, and generate detailed reports.</p>
+      </router-link>
+        </div>
+
     </div>
 
-  </div>
+
+
+
 </template>
 
 <style scoped>
-/* Custom CSS if needed */
+.hero_image {
+  z-index: 0;
+  background: url("../../public/imgs/headerimg/hero-image-mobile.jpg");
+  background-size: cover;
+  position: relative;
+  height: 25em;
+}
+.hero-text {
+  position: absolute;
+  bottom: -265px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.hero-text h1 {
+  padding: 0.5rem;
+  background-color: rgba(27, 101, 17, 0.5);
+}
+.hero-link {
+  display: block;
+  width: 60%;
+  margin: auto;
+}
+
+/* Desktop styling */
+@media (min-width: 1024px) {
+  .hero_image {
+    z-index: -1 !important;
+    background: url("../../public/imgs/headerimg/hero-image.jpg");
+    background-size: cover;
+    position: relative;
+    height: 50em;
+  }
+  .hero-text {
+    position: absolute;
+    bottom: -20px;
+    left: 22%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 100%;
+    color: white;
+  }
+  .hero-text h1 {
+    text-align: start;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+.hero-link {
+  margin: 0;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  width: 15rem;
+}
+
+  .portal-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: 1em auto auto;
+  }
+  .user-portal {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+
+}
 </style>
