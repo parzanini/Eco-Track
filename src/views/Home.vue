@@ -7,13 +7,14 @@
     <div class="hero_image">
       <div class="hero-text">
         <h1 class="text-center text-2xl">EcoTrack - Waste Management Solution</h1>
-        <router-link to="/user-waste-form" class="bg-[#0047ff] rounded-md p-3 text-center hero-link">Use Our Waste Tracker</router-link>
+        <router-link to="/user-waste-form" class="bg-[#0047ff] rounded-md p-3 text-center hero-link"><button>Use Our Waste Tracker</button></router-link>
       </div>
+
+
   </div>
 
 <!--Portal section-->
     <div class="portal-container flex flex-col m-4">
-
      <div class="user-portal mb-4 flex-1 flex flex-col bg-green-100 p-4 rounded-lg shadow-lg border-2 border-double border-black text-black text-center">
        <router-link to="/user-portal">
         <img src="../../public/imgs/headerimg/user%20login.png" alt="user portal" class="mx-auto mb-4">
@@ -40,7 +41,7 @@
 
 <style scoped>
 .hero_image {
-  z-index: 0;
+  z-index: 1;
   background: url("../../public/imgs/headerimg/hero-image-mobile.jpg");
   background-size: cover;
   position: relative;
@@ -63,12 +64,13 @@
   display: block;
   width: 60%;
   margin: auto;
+  z-index: 98;
 }
 
 /* Desktop styling */
 @media (min-width: 1024px) {
   .hero_image {
-    z-index: -1 !important;
+    z-index: 1 !important;
     background: url("../../public/imgs/headerimg/hero-image.jpg");
     background-size: cover;
     position: relative;
@@ -96,6 +98,7 @@
   padding-top: 1rem;
   padding-right: 1rem;
   width: 15rem;
+  z-index: 98;
 }
 
   .portal-container {
