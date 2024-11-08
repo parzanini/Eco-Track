@@ -1,9 +1,22 @@
 <template>
-  <div v-if="showModal" class="container-signin fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" @click="closeModal">
-    <main class="relative flex flex-col text-3xl text-black max-w-[578px] z-50" @click.stop>
-      <section class="flex flex-col px-8 py-9 w-full bg-white border-black border-solid border-[3px] rounded-[30px] max-md:px-5 max-md:max-w-full">
+  <div
+      v-if="showModal"
+      class="container-signin fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+      @click="closeModal"
+  >
+    <main class="relative flex flex-col text-3xl text-black max-h-[90vh] overflow-y-auto z-50"
+        @click.stop
+    >
+      <section
+          class="flex flex-col px-8 py-9 w-full bg-white border-black border-solid border-[3px] rounded-[30px] max-md:px-5 max-md:max-w-full"
+      >
         <header class="flex gap-10 self-center max-w-full text-6xl text-center w-[386px] max-md:text-4xl">
-          <img loading="lazy" src="/imgs/logo/Recycle%20Symbol%20Image.png" alt="Sign In Logo" class="object-contain shrink-0 max-w-full aspect-[0.97] w-[109px]" />
+          <img
+              loading="lazy"
+              src="/imgs/logo/Recycle%20Symbol%20Image.png"
+              alt="Sign In Logo"
+              class="object-contain shrink-0 max-w-full aspect-[0.97] w-[109px]"
+          />
           <h1 class="grow shrink my-auto w-[175px] max-md:text-4xl">Sign In</h1>
         </header>
 
@@ -14,7 +27,7 @@
               id="email"
               v-model="email"
               required
-              class="flex shrink-0 mt-5 border-2 border-green-600 border-solid bg-zinc-300 h-[87px] max-md:max-w-full"
+              class="flex shrink-0 mt-5 border-2 border-green-600 border-solid bg-zinc-300 h-[67px] max-md:max-w-full"
           />
 
           <label for="password" class="self-start mt-5 max-md:ml-0.5">Password:</label>
@@ -23,7 +36,7 @@
               id="password"
               v-model="password"
               required
-              class="flex shrink-0 mt-5 border-2 border-green-600 border-solid bg-zinc-300 h-[87px] max-md:max-w-full"
+              class="flex shrink-0 mt-5 border-2 border-green-600 border-solid bg-zinc-300 h-[67px] max-md:max-w-full"
           />
 
           <router-link to="" class="self-center mt-6 text-2xl" tabindex="0">
@@ -40,7 +53,12 @@
 
         <p class="self-center mt-32 max-md:mt-10 max-md:max-w-full">
           Don't have an account?
-          <router-link to="" class="text-green-600 hover:underline" @click.prevent="$emit('switchToSignUp')" tabindex="0">Sign Up</router-link>
+          <router-link
+              to=""
+              class="text-green-600 hover:underline"
+              @click.prevent="$emit('switchToSignUp')"
+              tabindex="0"
+          > Sign Up </router-link>
         </p>
       </section>
     </main>
@@ -50,7 +68,7 @@
 <script>
 export default {
   props: {
-    showModal: Boolean
+    showModal: Boolean,
   },
   data() {
     return {
@@ -64,16 +82,11 @@ export default {
     },
     closeModal() {
       this.$emit('close'); // Emit event to parent to close modal
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
-/*.container-signin {
-  z-index: 999;
-  margin-top: 15em;
-  height: 20%;
-}*/
-
+/* If needed, add any additional mobile-specific adjustments here */
 </style>

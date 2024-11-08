@@ -78,6 +78,7 @@
             v-for="link in navLinks"
             :key="link.name"
             :to="link.path"
+            @click="toggleMobileMenu"
             class="block px-4 py-2 hover:text-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
           >
             {{ link.name }}
