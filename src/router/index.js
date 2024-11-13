@@ -1,4 +1,4 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
@@ -47,8 +47,23 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createMemoryHistory(),
+    history: createWebHistory(),
     routes,
   })
 
+router.beforeEach((to, from, next) => {
+  const userId = sessionStorage.getItem('user_id');
+  const userAccess = sessionStorage.getItem('user_token');
+
+  // condition: user is trying to access these routes AND userId and userAccess are not set
+  if ((to.name === 'UserPortal' || to.name === 'UserWasteLogForm') && (!userId || !userAccess)) {
+    // Show message
+    alert('You must be logged in to access this page.');
+
+    // Block navigation
+    next(false);  // Don't allow access to the route
+  } else {
+    next();  // Allow access to the route if user is authenticated
+  }
+});
   export default router
