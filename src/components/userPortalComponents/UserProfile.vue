@@ -2,6 +2,10 @@
 <!--Author: K00288477 Gary O'Connor-->
 
 <script setup>
+// This is the user_id of the user currently logged in
+// The user portal should contain information related to this user.
+// The variable userId can be used when making get requests to the API endpoints to retrieve data
+const userId = sessionStorage.getItem('user_id')
 
 </script>
 

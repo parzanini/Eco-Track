@@ -20,4 +20,18 @@ export default class UserValidation {
         }
         return {isValid: true, message: 'Validation Successful'}
     }
+
+    // validation for user log in
+    userLogInValidation(email, password) {
+        // check for valid email
+        // console.log(email, password)
+        if(email == null || email === ''){
+            return { isValid: false, message: 'Please enter a valid email.' }
+        }
+        // check password is not empty
+        if(password == null || password.length < 6){
+            return { isValid: false, message: 'Please enter a valid password.' }
+        }
+        return { isValid: true, message: 'Log In Successful' };
+    }
 }

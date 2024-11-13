@@ -16,6 +16,7 @@ import { ref, onMounted } from "vue";
 
 const activeTab = ref("profile");
 
+
 // Handle tab updates
 const handleTabUpdate = (tabId) => {
   activeTab.value = tabId;
