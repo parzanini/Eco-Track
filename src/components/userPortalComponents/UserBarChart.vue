@@ -2,9 +2,27 @@
 import { ref, onMounted } from 'vue';
 import { Bar } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
-
+import axios from "axios";
 // Register necessary Chart.js components
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+
+
+const user_id = JSON.parse(sessionStorage.getItem('user_id'));
+onMounted( async ()=> {
+if(user_id){
+      try {
+        const response = await axios.get(`http://localhost/CI4-EcoTrack/public/monthlyData/${user_id}`,
+            { headers: { "Content-Type": "application/json" } }
+        );
+
+        // TODO: Populate Bar Charts with response data
+
+
+      }catch (e){
+        console.error("Error fetching data:", e.response ? e.response.data : e);
+      }
+    }
+})
 
 const chartData = ref({
   labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],

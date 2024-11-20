@@ -12,7 +12,6 @@ ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
 onMounted(async() => {
   const user_id = JSON.parse(sessionStorage.getItem('user_id'));
-  console.log(user_id);
 
   if(user_id){
     try {
