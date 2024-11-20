@@ -1,12 +1,40 @@
 <!-- PieChart.vue -->
 
 <script setup>
-import { ref } from 'vue';
+import {onMounted, ref} from 'vue';
 import { Pie } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import axios from "axios";
 
 // Register necessary Chart.js components
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
+
+
+onMounted(async() => {
+  const user_id = JSON.parse(sessionStorage.getItem('user_id'));
+  console.log(user_id);
+
+  if(user_id){
+    try {
+      const response = await axios.get(`http://localhost/CI4-EcoTrack/public/totalData/${user_id}`,
+          { headers: { "Content-Type": "application/json" } }
+      );
+      const apiData = response.data.chartData;
+      console.log('Api data:', response.data.chartData)
+
+      chartData.value.datasets[0].data = [
+        apiData.recycling,
+        apiData.general,
+        apiData.organic
+      ];
+
+      console.log('recycling: ', apiData.recycling);
+
+    } catch (e) {
+      console.error("Error fetching data:", e.response ? e.response.data : e);
+    }
+  }
+})
 
 const chartData = ref({
   labels: ['Recycling', 'General Waste', 'Organic Waste'],
@@ -14,7 +42,7 @@ const chartData = ref({
     {
       label: 'Waste Distribution',
       backgroundColor: ['#0C2A77', '#585858', '#36BA24'],
-      data: [300, 150, 100], // data for each category
+      data: [12,4,4], // set initial data to 0
     },
   ],
 });
@@ -28,10 +56,11 @@ const chartOptions = ref({
     },
     title: {
       display: true,
-      text: 'Waste Distribution by Category',
+      text: 'Total Waste Distribution',
     },
   },
 });
+
 </script>
 <template>
   <div class="chart-container">

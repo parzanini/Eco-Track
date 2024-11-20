@@ -112,8 +112,7 @@
 
 				try {
 					const response = await axios.post(
-						"http://localhost/CI4-EcoTrack/public/login",
-						data,
+						"http://localhost/CI4-EcoTrack/public/login", data,
 						{ headers: { "Content-Type": "application/json" } }
 					);
 					// get the response data

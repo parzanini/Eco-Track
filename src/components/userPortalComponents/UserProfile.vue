@@ -7,6 +7,7 @@
 // The variable userId can be used when making get requests to the API endpoints to retrieve data
 const userId = sessionStorage.getItem('user_id')
 
+
 </script>
 
 <template>
