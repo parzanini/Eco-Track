@@ -5,35 +5,8 @@ import {onMounted, ref} from 'vue';
 import { Pie } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import axios from "axios";
-
 // Register necessary Chart.js components
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
-
-
-onMounted(async() => {
-  const user_id = JSON.parse(sessionStorage.getItem('user_id'));
-
-  if(user_id){
-    try {
-      const response = await axios.get(`http://localhost/CI4-EcoTrack/public/totalData/${user_id}`,
-          { headers: { "Content-Type": "application/json" } }
-      );
-      const apiData = response.data.chartData;
-      console.log('Api data:', response.data.chartData)
-
-      chartData.value.datasets[0].data = [
-        apiData.recycling,
-        apiData.general,
-        apiData.organic
-      ];
-
-      console.log('recycling: ', apiData.recycling);
-
-    } catch (e) {
-      console.error("Error fetching data:", e.response ? e.response.data : e);
-    }
-  }
-})
 
 const chartData = ref({
   labels: ['Recycling', 'General Waste', 'Organic Waste'],
@@ -41,7 +14,7 @@ const chartData = ref({
     {
       label: 'Waste Distribution',
       backgroundColor: ['#0C2A77', '#585858', '#36BA24'],
-      data: [12,4,4], // set initial data to 0
+      data: [0,0,0], // set initial data to 0
     },
   ],
 });
@@ -59,6 +32,46 @@ const chartOptions = ref({
     },
   },
 });
+
+onMounted(async() => {
+  const user_id = JSON.parse(sessionStorage.getItem('user_id'));
+  if(user_id){
+    try {
+      const response = await axios.get(`http://localhost/CI4-EcoTrack/public/totalData/${user_id}`,
+          { headers: { "Content-Type": "application/json" } }
+      );
+
+      if (response.data.chartData) {
+        const apiData = response.data.chartData;
+
+        const recycling = apiData.recycling
+        const general = apiData.general
+        const organic = apiData.organic
+        // redefine chart Data values
+        chartData.value = {
+          labels: chartData.value.labels,
+          datasets: [{
+            label: chartData.value.datasets[0].label,
+            backgroundColor: chartData.value.datasets[0].backgroundColor,
+            data : [recycling, general, organic]
+            },
+          ],
+        }
+
+        chartData.value.datasets[0].data = [recycling, general, organic]
+      } else {
+        console.error("Unexpected data format:", response.data);
+      }
+
+      // console.log("Api data: ",apiData);
+      console.log("Processed Chart Data: ", chartData.value.datasets[0].data);
+
+    } catch (e) {
+      console.error("Error fetching data:", e.response ? e.response.data : e);
+    }
+  }
+
+})
 
 </script>
 <template>

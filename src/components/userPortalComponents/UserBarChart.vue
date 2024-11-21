@@ -6,24 +6,7 @@ import axios from "axios";
 // Register necessary Chart.js components
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
-
 const user_id = JSON.parse(sessionStorage.getItem('user_id'));
-onMounted( async ()=> {
-if(user_id){
-      try {
-        const response = await axios.get(`http://localhost/CI4-EcoTrack/public/monthlyData/${user_id}`,
-            { headers: { "Content-Type": "application/json" } }
-        );
-
-        // TODO: Populate Bar Charts with response data
-
-
-      }catch (e){
-        console.error("Error fetching data:", e.response ? e.response.data : e);
-      }
-    }
-})
-
 const chartData = ref({
   labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
   datasets: [
@@ -32,7 +15,7 @@ const chartData = ref({
       backgroundColor: '#0C2A77',
       borderColor: 'black',
       borderWidth: 1,
-      data: [65, 59, 80, 81],
+      data: [0,0,0,0],
       barThickness: 10
     },
     {
@@ -40,7 +23,7 @@ const chartData = ref({
       backgroundColor: '#585858',
       borderColor: 'black',
       borderWidth: 1,
-      data: [20, 35, 10, 40],
+      data: [0,0,0,0],
       barThickness: 10
     },
     {
@@ -48,11 +31,76 @@ const chartData = ref({
       backgroundColor: '#36BA24',
       borderColor: 'black',
       borderWidth: 1,
-      data: [40, 59, 30, 55],
+      data: [0,0,0,0],
       barThickness: 10
     },
   ],
 });
+
+onMounted( async ()=> {
+  if(user_id){
+    try {
+      const response = await axios.get(`http://localhost/CI4-EcoTrack/public/monthlyData/${user_id}`,
+          { headers: { "Content-Type": "application/json" } }
+      );
+      console.log('Response Data:', JSON.stringify(response.data, null, 2))
+      const apiData = response.data.data;
+      if (!apiData) { console.error('API Data is undefined or null:', apiData); return; }
+
+      // Define array of arrays
+      const recycling = [0,0,0,0];
+      const general = [0,0,0,0];
+      const organic = [0,0,0,0];
+      const parsedWeeks = Object.keys(apiData)
+
+    //  iterate through the array key and add data to arrays
+      parsedWeeks.forEach((week, index) => {
+        const weekData = apiData[week];
+        if (!weekData) {
+          console.error(`Week data for week ${week} is undefined or null:`, weekData);
+          return; // display no data if the user does h=not have any waste events logged
+        }
+        // Add the data to matching arrays. 0 is no data exists for the array
+        recycling[index] = weekData.recycling !== undefined ? weekData.recycling : 0;
+        general[index] = weekData.general !== undefined ? weekData.general : 0;
+        organic[index] = weekData.organic !== undefined ? weekData.organic : 0; });
+
+      // Populate chart
+      chartData.value = {
+        labels: chartData.value.labels,
+        datasets: [
+          {
+            label: 'Recycling',
+            backgroundColor: '#0C2A77',
+            borderColor: 'black',
+            borderWidth: 1,
+            data: recycling,
+            barThickness: 10
+          },
+          {
+            label: 'General Waste',
+            backgroundColor: '#585858',
+            borderColor: 'black',
+            borderWidth: 1,
+            data: general,
+            barThickness: 10
+          },
+          {
+            label: 'Organic',
+            backgroundColor: '#36BA24',
+            borderColor: 'black',
+            borderWidth: 1,
+            data: organic,
+            barThickness: 10
+          }
+        ],
+      }
+      console.log("Processed Chart Data: ", chartData.value.datasets);
+    }catch (e){
+      console.error("Error fetching data:", e.response ? e.response.data : e);
+    }
+  }
+})
 
 const chartOptions = ref({
   responsive: true,
