@@ -113,7 +113,7 @@ const handleSubmit = async () => {
 
   try{
     //api call to send email
-      const response = await axios.post('http://localhost:8081/CI4-EcoTrack/public/contact/handleContact', formData, {
+      const response = await axios.post(`http://localhost/CI4-EcoTrack/public/contact/handleContact`, formData, {
       headers: {
         'Content-Type': 'application/json',
       },
