@@ -2,6 +2,7 @@
 <!--Author: K00288477 Gary O'Connor-->
 
 <script setup>
+
 import { ref } from 'vue';
 import axios from 'axios';
 
@@ -50,6 +51,7 @@ const updateUserDetails = async () => {
     isSubmitting.value = false;
   }
 };
+
 </script>
 
 
