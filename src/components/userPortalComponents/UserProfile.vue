@@ -2,23 +2,69 @@
 <!--Author: K00288477 Gary O'Connor-->
 
 <script setup>
-// This is the user_id of the user currently logged in
-// The user portal should contain information related to this user.
-// The variable userId can be used when making get requests to the API endpoints to retrieve data
-const userId = sessionStorage.getItem('user_id')
 
+import { ref } from 'vue';
+import axios from 'axios';
+
+// Reactive data
+const formData = ref({
+  username: '',
+  email: '',
+  f_name: '',
+  l_name: '',
+  dob: '',
+  streetNumber: '',
+  street: '',
+  city: '',
+});
+
+// State management
+const validationErrors = ref({});
+const apiMessage = ref('');
+const isSubmitting = ref(false);
+
+const userId = JSON.parse(sessionStorage.getItem('user_id'));
+console.log(userId);
+
+const updateUserDetails = async () => {
+  isSubmitting.value = true;
+  validationErrors.value = {};
+  apiMessage.value = '';
+
+  try {
+    const response = await axios.put(`http://localhost/CI4-EcoTrack/public/updateProfile/${userId}`, formData.value);
+    apiMessage.value = response.data.message;
+  } catch (error) {
+    if (error.response?.status === 400) {
+      // Log the full error response for debugging
+      console.log('Full error response:', error.response);
+
+      // Extract validation errors
+      validationErrors.value = error.response.data?.errors || {};
+      console.log('Validation errors:', validationErrors.value);
+      apiMessage.value = 'Validation failed. Please correct the errors above.';
+    } else {
+      apiMessage.value = error.response?.data?.message || 'An error occurred while updating details.';
+    }
+    console.error('Error updating user details:', error);
+  } finally {
+    isSubmitting.value = false;
+  }
+};
 
 </script>
 
+
 <template>
-<!--  profile card-->
+  <!-- Profile card and form -->
   <section class="flex flex-col ml-5 max-md:ml-0 max-md:w-full">
     <div class="flex flex-col mt-4 mx-2 user-profile">
+      <!-- User Card -->
       <div class="flex flex-wrap gap-5 w-full justify-center mx-2">
         <div class="flex flex-row user-card">
           <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/24ca7cf09a8ca79e7c7fa9ebefe33442ed8607433ac270c6808abd289e2023d6?placeholderIfAbsent=true&apiKey=527389ec12184d8eb640ce74d588a626" alt="User profile picture" class="object-contain shrink-0 max-w-16 rounded-full aspect-square w-[150px] profile-img" />
           <div class="flex flex-col justify-center mx-4 max-md:mt-10 username">
-            <h3 class="text-xl text-black my-0">Gary.oconnor94</h3>
+            <h3 class="text-xl text-black my-0">{{ formData.username }}</h3>
             <p class="text-md text-black text-opacity-80">Joined: 11/10/2024</p>
           </div>
           <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/79f980ec275542a791ab5890f8049f1d94f7e693dff6038fbf19fda1c0f76543?placeholderIfAbsent=true&apiKey=527389ec12184d8eb640ce74d588a626" alt="" class="object-contain max-w-16 aspect-square w-[125px] badge" />
@@ -26,69 +72,130 @@ const userId = sessionStorage.getItem('user_id')
       </div>
       <hr class="shrink-0 mt-4 w-full border border-black border-solid w-[838px]" />
 
-      <!--  form: personal details-->
-      <!--user will be able to update their personal details from here-->
+      <!-- Form -->
       <h3 class="self-center mt-5 text-2xl text-center text-black">Personal Details</h3>
-
-      <form class="flex flex-wrap justify-center mt-5 text-2xl text-black personal-details">
+      <form class="flex flex-wrap justify-center mt-5 text-2xl text-black personal-details" @submit.prevent="updateUserDetails">
         <div class="flex flex-col justify-center">
-          <div class="py-1.5 pl-1 pr-1 mb-3 ">
+          <!-- Username -->
+          <div class="py-1.5 pl-1 pr-1 mb-3">
             <label for="username" class="text-md">Username:</label>
-            <input type="text" id="username" value="gary.oconnor94" class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full" />
+            <input
+                v-model="formData.username"
+                type="text"
+                id="username"
+                class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full"
+            />
+            <p v-if="validationErrors.username" class="text-red-500 text-sm">{{ validationErrors.username }}</p>
           </div>
 
+          <!-- Email -->
           <div class="py-1.5 pl-1 pr-1 mb-3">
-          <label for="email" class="text-md">Email:</label>
-            <input type="email" id="email" value="gary.oconnor94@gmail.com" class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full" />
+            <label for="email" class="text-md">Email:</label>
+            <input
+                v-model="formData.email"
+                type="email"
+                id="email"
+                class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full"
+            />
+            <p v-if="validationErrors.email" class="text-red-500 text-sm">{{ validationErrors.email }}</p>
           </div>
 
+          <!-- First Name -->
           <div class="py-1.5 pl-1 pr-1 mb-3">
-          <label for="firstName" class="text-md">First Name:</label>
-            <input type="text" id="firstName" value="Gary" class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full" />
+            <label for="firstName" class="text-md">First Name:</label>
+            <input
+                v-model="formData.f_name"
+                type="text"
+                id="firstName"
+                class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full"
+            />
+            <p v-if="validationErrors.f_name" class="text-red-500 text-sm">{{ validationErrors.f_name }}</p>
           </div>
 
+          <!-- Last Name -->
           <div class="py-1.5 pl-1 pr-1 mb-3">
-          <label for="lastName" class="text-md">Surname:</label>
-            <input type="text" id="lastName" value="O'Connor" class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full" />
+            <label for="lastName" class="text-md">Surname:</label>
+            <input
+                v-model="formData.l_name"
+                type="text"
+                id="lastName"
+                class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full"
+            />
+            <p v-if="validationErrors.l_name" class="text-red-500 text-sm">{{ validationErrors.l_name }}</p>
           </div>
 
+          <!-- Date of Birth -->
           <div class="py-1.5 pl-1 pr-1 mb-3">
-          <label for="dob" class="text-md">Date of Birth:</label>
-            <input type="text" id="dob" value="26/03/9999" class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full" />
+            <label for="dob" class="text-md">Date of Birth:</label>
+            <input
+                v-model="formData.dob"
+                type="date"
+                id="dob"
+                class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full"
+            />
+            <p v-if="validationErrors.dob" class="text-red-500 text-sm">{{ validationErrors.dob }}</p>
           </div>
         </div>
 
         <hr class="shrink-0 mt-4 max-w-full h-px border border-black border-solid w-[838px]" />
 
         <div class="flex flex-col self-start mt-5 form-col2">
+          <!-- Street Number -->
           <div class="py-1.5 pl-1 pr-1 mb-3">
-          <label for="streetNumber" class="text-md">House Number:</label>
-            <input type="text" id="streetNumber" value="123" class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full" />
+            <label for="streetNumber" class="text-md">House Number:</label>
+            <input
+                v-model="formData.streetNumber"
+                type="text"
+                id="streetNumber"
+                class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full"
+            />
+            <p v-if="validationErrors.streetNumber" class="text-red-500 text-sm">{{ validationErrors.streetNumber }}</p>
           </div>
 
+          <!-- Street -->
           <div class="py-1.5 pl-1 pr-1 mb-3">
-          <label for="street" class="text-md">Street:</label>
-            <input type="text" id="street" value="Fake Street" class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full" />
+            <label for="street" class="text-md">Street:</label>
+            <input
+                v-model="formData.street"
+                type="text"
+                id="street"
+                class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full"
+            />
+            <p v-if="validationErrors.street" class="text-red-500 text-sm">{{ validationErrors.street }}</p>
           </div>
 
+          <!-- City -->
           <div class="py-1.5 pl-1 pr-1 mb-3">
-          <label for="city" class="text-md">City:</label>
-            <input type="text" id="city" value="Limerick" class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full" />
+            <label for="city" class="text-md">City:</label>
+            <input
+                v-model="formData.city"
+                type="text"
+                id="city"
+                class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full"
+            />
+            <p v-if="validationErrors.city" class="text-red-500 text-sm">{{ validationErrors.city }}</p>
           </div>
 
           <p class="mt-10 text-base max-md:mr-1">
-            Note: Your data will only be stored and used for waste tracking purposes, as outlined in our <a href="#" class="text-blue-600">Privacy Policy</a>. Your data will be securely stored and not shared with third parties.
+            Note: Your data will only be stored and used for waste tracking purposes, as outlined in our
+            <a href="#" class="text-blue-600">Privacy Policy</a>. Your data will be securely stored and not shared with third parties.
           </p>
-          <button type="submit" class="self-end px-16 py-1 my-5 text-base text-center text-white bg-blue-700 rounded-3xl max-md:px-5">
-          Update Details
-        </button>
+          <button
+              type="submit"
+              :disabled="isSubmitting"
+              class="self-end px-16 py-1 my-5 text-base text-center text-white bg-blue-700 rounded-3xl max-md:px-5"
+          >
+            {{ isSubmitting ? "Updating..." : "Update Details" }}
+          </button>
         </div>
-
-
       </form>
+
+      <!-- API Message -->
+      <p v-if="apiMessage" class="text-center mt-5 text-red-600">{{ apiMessage }}</p>
     </div>
   </section>
 </template>
+
 
 <style scoped>
 
