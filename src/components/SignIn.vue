@@ -21,11 +21,6 @@
 				<form
 					@submit.prevent="handleSubmit"
 					class="flex flex-col w-full">
-					<span
-						v-if="errorMessage"
-						class="text-red-600 text-center"
-						>{{ errorMessage }}</span
-					>
 					<label
 						for="text"
 						class="self-start mt-2 md:mt-6 max-md:ml-2"
@@ -35,9 +30,12 @@
 						type="email"
 						id="email"
 						v-model="email"
-						required
 						class="flex shrink-0 mt-5 border-2 border-green-600 border-solid bg-zinc-300 h-[40px] md:h-[65px] max-md:max-w-full" />
-
+					<span
+						v-if="errorMessageEmail"
+						class="text-red-600 text-center"
+						>{{ errorMessageEmail }}</span
+					>
 					<label
 						for="password"
 						class="self-start mt-2 md:mt-6 max-md:ml-0.5"
@@ -47,8 +45,17 @@
 						type="password"
 						id="password"
 						v-model="password"
-						required
 						class="flex shrink-0 mt-5 border-2 border-green-600 border-solid bg-zinc-300 h-[40px] md:h-[65px] max-md:max-w-full" />
+					<span
+						v-if="errorMessagePassword"
+						class="text-red-600 text-center"
+						>{{ errorMessagePassword }}</span
+					>
+					<span
+						v-if="errorMessageLogin"
+						class="text-red-600 text-center">
+						{{ errorMessageLogin }}
+					</span>
 
 					<router-link
 						to=""
@@ -92,52 +99,60 @@
 			return {
 				email: "",
 				password: "",
-				errorMessage: "",
+				errorMessageEmail: "",
+				errorMessagePassword: "",
+				errorMessageLogin: "",
 			};
 		},
 		methods: {
 			async handleSubmit() {
+				// Clear error messages
+				this.errorMessageEmail = "";
+				this.errorMessagePassword = "";
+				// Validate email and password
+				const validation = userValidation.userLogInValidation(
+					this.email,
+					this.password
+				);
+
+				// Check validation result
+				if (!validation.isValid) {
+					if (validation.errorType === "email") {
+						this.errorMessageEmail = validation.message;
+					} else if (validation.errorType === "password") {
+						this.errorMessagePassword = validation.message;
+					}
+					return;
+				}
+
 				// Handle form submission here
 				const data = { email: this.email, password: this.password };
-
-				// run validation
-				// const validation = userValidation.userLogInValidation(this.email, this.password);
-				// console.log(validation)
-				// if(!validation.isValid){
-				//   // Validation failed
-				//   console.log(this.email + ' ' + this.password)
-				//   this.errorMessage = validation.message;
-				//   return;
-				// }
-
 				try {
 					const response = await axios.post(
-						"http://localhost/CI4-EcoTrack/public/login", data,
-						{ headers: { "Content-Type": "application/json" } }
+						"http://localhost/CI4-EcoTrack/public/login",
+						data
 					);
-					// get the response data
 					const login = response.data;
 
 					if (response.status === 200 && login.user_id) {
-						// if not null
-						// login successful
-						// store the token and id in session
-						sessionStorage.setItem("user_id", JSON.stringify(login.user_id));
-						sessionStorage.setItem("user_token", JSON.stringify(login.token));
+						// Store values directly without JSON.stringify
+						sessionStorage.setItem("user_name", login.user_name);
+						sessionStorage.setItem("user_token", login.token);
+						sessionStorage.setItem("user_id", login.user_id);
+						console.log("Login successful", login);
+						console.log(sessionStorage.getItem("user_name"));
+						console.log(sessionStorage.getItem("user_token"));
+						console.log(sessionStorage.getItem("user_id"));
 
-						// Clear the fields
 						this.email = "";
 						this.password = "";
-
-						// close the sign-in form
 						this.$emit("close");
-						// redirect to User Portal
 						this.$router.push("/");
-					} else {
-						console.log("Invalid Credentials");
+						// Reload the page to update the navbar
+						window.location.reload();
 					}
 				} catch (e) {
-					// handle error
+					this.errorMessageLogin = "Invalid email or password"; // Set login error message
 					console.log("Error occurred", e);
 				}
 			},
