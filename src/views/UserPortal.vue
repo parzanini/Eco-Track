@@ -9,6 +9,7 @@
 	import UserBadges from "@/components/userPortalComponents/UserBadges.vue";
 	import UserMilestones from "@/components/userPortalComponents/UserMilestones.vue";
 	import UserCommunity from "@/components/userPortalComponents/UserCommunity.vue";
+	import DeleteAccount from "@/components/userPortalComponents/DeleteAccount.vue";
 
 	import UserPortalManager from "@/components/userPortalComponents/userPortalManager.js";
 
@@ -57,6 +58,11 @@
 				<!--      <div id="community-content" class="portal-content content">-->
 				<!--        <UserCommunity />-->
 				<!--      </div>-->
+				<div
+					id="delete-account"
+					class="portal-content content">
+					<DeleteAccount />
+				</div>
 			</div>
 		</div>
 	</div>

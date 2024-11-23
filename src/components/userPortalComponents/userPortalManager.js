@@ -7,7 +7,7 @@ export default class UserPortalManager {
         'up-3': 'badges-content',
         'up-4': 'milestones-content',
         'up-5': 'community-content',
-        'up-6': 'logout-content'
+        'up-6': 'delete-account'
     };
 
     static hideAllContent() {

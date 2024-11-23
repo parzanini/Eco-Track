@@ -44,7 +44,12 @@
 		<!--      <div class="l-item" id="up-3" @click="portalNavigationManager('up-3')">Badges</div>-->
 		<!--      <div class="l-item" id="up-4" @click="portalNavigationManager('up-4')">Milestones</div>-->
 		<!--      <div class="l-item" id="up-5" @click="portalNavigationManager('up-5')">Community</div>-->
-		<!-- <div class="l-item" id="up-6" @click="portalNavigationManager('up-6')">Log Out</div> -->
+		<div
+			class="l-item"
+			id="up-6"
+			@click="portalNavigationManager('up-6')">
+			Delete Account
+		</div>
 	</div>
 </template>
 

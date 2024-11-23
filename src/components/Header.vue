@@ -209,9 +209,10 @@
 					);
 					if (response.status === 200) {
 						sessionStorage.clear();
-						this.$router.push("/");
 						// Reload the page to update the navbar
 						window.location.reload();
+						//redirect to home page
+						this.$router.push("Home");
 					}
 				} catch (e) {
 					console.log("Error occurred", e);
