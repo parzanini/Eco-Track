@@ -82,6 +82,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import axios from "axios";
 
 const name = ref("");
 const email = ref("");
@@ -89,7 +90,7 @@ const message = ref("");
 const showModal = ref(false);
 const errorMessage = ref("");
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   errorMessage.value = "";
 
   if (!name.value || !email.value || !message.value) {
@@ -103,12 +104,32 @@ const handleSubmit = () => {
     return;
   }
 
-  showModal.value = true;
+  // data to be sent to the backend
+  const formData ={
+    name: name.value,
+    email: email.value,
+    message: message.value,
+  }; 
 
-  name.value = "";
-  email.value = "";
-  message.value = "";
-};
+  try{
+    //api call to send email
+      const response = await axios.post(`http://localhost/CI4-EcoTrack/public/contact/handleContact`, formData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log(response.data.message); // outputs 'sent successfully'
+    showModal.value = true;
+
+      name.value = "";
+      email.value = "";
+      message.value = "";
+    } catch (error){
+      //handle errors
+      errorMessage.value = "Error. Please try again.";
+      //console.error(errorMessage);
+}};
+
 
 const closeModal = () => {
   showModal.value = false;
