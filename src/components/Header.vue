@@ -20,8 +20,26 @@
 					tabindex="0">
 					{{ link.name }}
 				</router-link>
-				<!-- User Icon -->
+				<!-- isAuthenticated will verify is there is a token in the session storage, if there is, it will show the user's name and a logout button, if not, it will show a login button -->
+				<div
+					v-if="isAuthenticated"
+					class="flex flex-col p-2 gap-2">
+					<router-link
+						to="/user-portal"
+						class="flex items-center gap-2">
+						<span
+							class="grow self-stretch my-auto hover:text-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+							>{{ userDisplayName }}'s Portal</span
+						>
+					</router-link>
+					<button
+						@click="logout"
+						class="grow self-stretch my-auto hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+						Logout
+					</button>
+				</div>
 				<a
+					v-else
 					href="#"
 					@click.prevent="openModal">
 					<UserCircleIcon
@@ -57,13 +75,6 @@
 							d="M4 6h16M4 12h16m-7 6h7" />
 					</svg>
 				</button>
-				<a
-					href="#"
-					@click.prevent="openModal"
-					class="ml-4">
-					<UserCircleIcon
-						class="w-14 h-14 text-black-500 hover:text-green-600" />
-				</a>
 			</div>
 
 			<!-- Mobile menu links -->
@@ -78,6 +89,31 @@
 						class="block px-4 py-2 hover:text-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
 						{{ link.name }}
 					</router-link>
+					<div
+						v-if="isAuthenticated"
+						class="flex flex-col px-4 py-2 gap-2">
+						<router-link
+							to="/user-portal"
+							class="ml-4">
+							<span class="text-black-500 hover:text-green-600"
+								>{{ userDisplayName.toUpperCase() }}'S PORTAL</span
+							>
+						</router-link>
+						<button
+							@click="logout"
+							class="ml-4">
+							LOGOUT
+						</button>
+					</div>
+					<a
+						v-else
+						href="#"
+						@click.prevent="openModal"
+						class="ml-4">
+						<span class="text-black-500 hover:text-green-600"
+							>Login/Sign Up</span
+						>
+					</a>
 				</div>
 			</div>
 		</nav>
@@ -109,6 +145,7 @@
 	import SignIn from "./SignIn.vue";
 	import SignUp from "./SignUp.vue";
 	import { UserCircleIcon } from "@heroicons/vue/24/solid";
+	import axios from "axios";
 
 	export default {
 		components: {
@@ -121,14 +158,25 @@
 				isModalVisible: false,
 				activeComponent: "SignIn",
 				isMobileMenuOpen: false,
+				userName: "",
 				navLinks: [
-					{ name: "HOME", path: "/" },
 					{ name: "ABOUT", path: "/about" },
 					{ name: "EDUCATION", path: "/education" },
 					{ name: "COMMUNITY", path: "/community" },
 					{ name: "CONTACT", path: "/contact" },
 				],
 			};
+		},
+		computed: {
+			isAuthenticated() {
+				const token = sessionStorage.getItem("user_token");
+				return !!token && token !== "null" && token !== "undefined";
+			},
+			userDisplayName() {
+				const name = sessionStorage.getItem("user_name");
+				// Return the name directly without JSON.parse
+				return name || "";
+			},
 		},
 		methods: {
 			openModal() {
@@ -147,6 +195,28 @@
 			},
 			switchToSignIn() {
 				this.activeComponent = "SignIn";
+			},
+			async logout() {
+				try {
+					const response = await axios.post(
+						"http://localhost/CI4-EcoTrack/public/logout",
+						{},
+						{
+							headers: {
+								Authorization: `Bearer ${sessionStorage.getItem("user_token")}`,
+							},
+						}
+					);
+					if (response.status === 200) {
+						sessionStorage.clear();
+						// Reload the page to update the navbar
+						window.location.reload();
+						//redirect to home page
+						this.$router.push("Home");
+					}
+				} catch (e) {
+					console.log("Error occurred", e);
+				}
 			},
 		},
 	};
