@@ -202,7 +202,7 @@
 			async logout() {
 				try {
 					const response = await axios.post(
-						"http://localhost/CI4-EcoTrack/public/logout",
+						"72.145.1.73:8080/CI4-EcoTrack/public/logout",
 						{},
 						{
 							headers: {
