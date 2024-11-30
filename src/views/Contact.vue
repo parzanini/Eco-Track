@@ -143,7 +143,7 @@
 			isLoading.value = true; // show spinner
 			//api call to send email
 			const response = await axios.post(
-				`72.145.1.73:8080/CI4-EcoTrack/public/contact/handleContact`,
+				`http://http://72.145.1.73:8080/CI4-EcoTrack/public/contact/handleContact`,
 				formData,
 				{
 					headers: {
