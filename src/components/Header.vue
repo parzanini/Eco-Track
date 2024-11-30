@@ -55,6 +55,7 @@
 				<img
 					loading="lazy"
 					src="/imgs/logo/EcoTrackLogo.png"
+					@click="isMobileMenuOpen = false"
 					alt="Company Logo"
 					class="" />
 			</router-link>
@@ -80,12 +81,13 @@
 			<!-- Mobile menu links -->
 			<div
 				v-if="isMobileMenuOpen"
-				class="absolute top-full left-0 right-0 bg-white z-10">
+				class="absolute top-full left-0 right-0 bg-white z-10 p-2 border-b-2 border-black">
 				<div class="flex flex-col">
 					<router-link
 						v-for="link in navLinks"
 						:key="link.name"
 						:to="link.path"
+						@click="toggleMobileMenu()"
 						class="block px-4 py-2 hover:text-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
 						{{ link.name }}
 					</router-link>
@@ -94,7 +96,8 @@
 						class="flex flex-col px-4 py-2 gap-2">
 						<router-link
 							to="/user-portal"
-							class="ml-4">
+							class="ml-4"
+							@click="toggleMobileMenu()">
 							<span class="text-black-500 hover:text-green-600"
 								>{{ userDisplayName.toUpperCase() }}'S PORTAL</span
 							>
@@ -209,10 +212,9 @@
 					);
 					if (response.status === 200) {
 						sessionStorage.clear();
-						// Reload the page to update the navbar
+						// Navigate home first, then reload
+						await this.$router.push("/");
 						window.location.reload();
-						//redirect to home page
-						this.$router.push("Home");
 					}
 				} catch (e) {
 					console.log("Error occurred", e);
@@ -233,7 +235,7 @@
 	}
 
 	/* Show mobile navbar on smaller screens */
-	@media (max-width: 768px) {
+	@media (max-width: 1000px) {
 		.desktop-navbar {
 			display: none; /* Hide desktop navbar on mobile */
 		}

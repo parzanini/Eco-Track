@@ -49,21 +49,40 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
-  })
+})
+  
+// Modal to replace alert
+const createModal = () => {
+  const modalDiv = document.createElement('div');
+  modalDiv.className = 'fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50';
+  modalDiv.innerHTML = `
+    <div class="bg-white p-8 rounded-lg shadow-xl text-center">
+      <h3 class="text-2xl font-semibold mb-4">Authentication Required</h3>
+      <p class="mb-6 text-gray-600">Please log in to access this page</p>
+      <button 
+        class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        onclick="document.getElementById('auth-modal').remove()">
+        Close
+      </button>
+    </div>
+  `;
+  modalDiv.id = 'auth-modal';
+  return modalDiv;
+};
 
 router.beforeEach((to, from, next) => {
   const userId = sessionStorage.getItem('user_id');
   const userAccess = sessionStorage.getItem('user_token');
 
-  // condition: user is trying to access these routes AND userId and userAccess are not set
   if ((to.name === 'UserPortal' || to.name === 'UserWasteLogForm') && (!userId || !userAccess)) {
-    // Show message
-    alert('You must be logged in to access this page.');
-
+    // Create and show modal
+    const modal = createModal();
+    document.body.appendChild(modal);
+    
     // Block navigation
-    next(false);  // Don't allow access to the route
+    next(false);
   } else {
-    next();  // Allow access to the route if user is authenticated
+    next();
   }
 });
   export default router
