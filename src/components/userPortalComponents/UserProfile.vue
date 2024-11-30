@@ -30,7 +30,7 @@
 	const getUserDetails = async () => {
 		try {
 			const response = await axios.get(
-				`72.145.1.73:8080/CI4-EcoTrack/public/viewProfile/${userId}`
+				`http://72.145.1.73:8080/CI4-EcoTrack/public/viewProfile/${userId}`
 			);
 			const user = response.data;
 
@@ -58,7 +58,7 @@
 
 		try {
 			const response = await axios.put(
-				`72.145.1.73:8080/CI4-EcoTrack/public/updateProfile/${userId}`,
+				`http://72.145.1.73:8080/CI4-EcoTrack/public/updateProfile/${userId}`,
 				formData.value
 			);
 			apiMessage.value = response.data.message;
