@@ -18,7 +18,7 @@
 	<!--Portal section-->
 	<div class="portal-container flex flex-col m-4">
 		<div
-			class="user-portal mb-4 flex-1 flex flex-col bg-green-100 p-4 rounded-lg shadow-lg border-2 border-double border-black text-black text-center">
+			class="user-portal mb-4 flex-1 flex flex-col bg-green-100 p-4 rounded-lg shadow-lg border-2 border-double border-black text-black text-center z-30">
 			<router-link to="/user-portal">
 				<img
 					src="../../public/imgs/headerimg/user%20login.png"
