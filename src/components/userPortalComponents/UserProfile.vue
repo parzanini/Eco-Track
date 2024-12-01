@@ -11,7 +11,7 @@
 		email: "",
 		f_name: "",
 		l_name: "",
-		streetNumber: "",
+		houseNumber: "",
 		street: "",
 		city: "",
 	});
@@ -38,7 +38,7 @@
 				email: user.email || "",
 				f_name: user.f_name || "",
 				l_name: user.l_name || "",
-				streetNumber: user.houseNumber || "",
+				houseNumber: user.houseNumber || "",
 				street: user.street || "",
 				city: user.city || "",
 			};
@@ -203,19 +203,19 @@
 					<!-- Street Number -->
 					<div class="py-1.5 pl-1 pr-1 mb-3">
 						<label
-							for="streetNumber"
+							for="houseNumber"
 							class="text-md"
 							>House Number:</label
 						>
 						<input
-							v-model="formData.streetNumber"
+							v-model="formData.houseNumber"
 							type="text"
-							id="streetNumber"
+							id="houseNumber"
 							class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full" />
 						<p
-							v-if="validationErrors.streetNumber"
+							v-if="validationErrors.houseNumber"
 							class="text-red-500 text-sm">
-							{{ validationErrors.streetNumber }}
+							{{ validationErrors.houseNumber }}
 						</p>
 					</div>
 
