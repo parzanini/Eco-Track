@@ -93,7 +93,7 @@
 
 					try {
 						const response = await axios.post(
-							"https://72.145.1.73:8080/CI4-EcoTrack/public/register",
+							"http://72.145.1.73:8080/CI4-EcoTrack/public/register",
 							data,
 							{ headers: { "Content-Type": "application/json" } }
 						);

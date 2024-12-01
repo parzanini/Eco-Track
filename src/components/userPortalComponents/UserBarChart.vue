@@ -56,7 +56,7 @@
 		if (user_id) {
 			try {
 				const response = await axios.get(
-					`https://72.145.1.73:8080/CI4-EcoTrack/public/monthlyData/${user_id}`,
+					`http://72.145.1.73:8080/CI4-EcoTrack/public/monthlyData/${user_id}`,
 					{ headers: { "Content-Type": "application/json" } }
 				);
 				console.log("Response Data:", JSON.stringify(response.data, null, 2));
