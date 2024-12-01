@@ -118,7 +118,7 @@
 			<form
 				class="flex flex-wrap justify-center mt-5 text-2xl text-black personal-details"
 				@submit.prevent="updateUserDetails">
-				<div class="flex flex-col justify-center">
+				<div class="flex flex-col justify-start">
 					<!-- Username -->
 					<div class="py-1.5 pl-1 pr-1 mb-3">
 						<label
