@@ -11,7 +11,6 @@
 		email: "",
 		f_name: "",
 		l_name: "",
-		dob: "",
 		streetNumber: "",
 		street: "",
 		city: "",
@@ -193,25 +192,6 @@
 							v-if="validationErrors.l_name"
 							class="text-red-500 text-sm">
 							{{ validationErrors.l_name }}
-						</p>
-					</div>
-
-					<!-- Date of Birth -->
-					<div class="py-1.5 pl-1 pr-1 mb-3">
-						<label
-							for="dob"
-							class="text-md"
-							>Date of Birth:</label
-						>
-						<input
-							v-model="formData.dob"
-							type="date"
-							id="dob"
-							class="border-2 border-green-600 border-solid bg-zinc-100 p-3 w-full" />
-						<p
-							v-if="validationErrors.dob"
-							class="text-red-500 text-sm">
-							{{ validationErrors.dob }}
 						</p>
 					</div>
 				</div>
