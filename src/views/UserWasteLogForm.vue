@@ -48,7 +48,7 @@
 		// API call
 		try {
 			const response = await axios.post(
-				`http://72.145.1.73:8080/CI4-EcoTrack/public/insertWasteEvent`,
+				`/api/CI4-EcoTrack/public/insertWasteEvent`,
 				formData,
 				{ headers: { "Content-Type": "application/json" } }
 			);

@@ -16,7 +16,7 @@
 		isLoading.value = true;
 		// Api Call
 		const response = await axios.get(
-			`http://72.145.1.73:8080/CI4-EcoTrack/public/getLeaderBoard`,
+			`/api/CI4-EcoTrack/public/getLeaderBoard`,
 			{
 				headers: { "Content-Type": "application/json" },
 			}

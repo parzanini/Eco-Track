@@ -129,7 +129,7 @@
 				const data = { email: this.email, password: this.password };
 				try {
 					const response = await axios.post(
-						"http://72.145.1.73:8080/CI4-EcoTrack/public/login",
+						"/api/CI4-EcoTrack/public/login",
 						data
 					);
 					const login = response.data;
