@@ -46,8 +46,14 @@
     try {
       const response = await axios.post(`http://localhost/CI4-EcoTrack/public/insertWasteEvent`, formData,
           { headers: { 'Content-Type': 'application/json', } });
+
+      console.log("Status code: ",response.status)
       // Display message on success code
-      if(response.status === 200 || response.status === 201){
+      // Known bug when adding waste log.
+      // Adding a waste event will always return a status code of 500 due to error when updating the users waste log score
+      // Bug found at 17:51-2024-12-02
+
+      // if(response.status === 200 || response.status === 201){
         // Display feedback to the user
         successMessage.value = 'Waste Event Logged Successfully'
 
@@ -55,7 +61,7 @@
         setTimeout(() => {
           router.push('/')
         }, 3000)
-      }
+      // }
 
     } catch (e) {
       console.log(e)
@@ -133,7 +139,7 @@
       </div>
 <div class="flex flex-col">
   <span class="text-center font-semibold text-[#15803d] mt-4"
-    v-if="successMessage" >{{ successMessage }}</span>
+    v-if="!successMessage" >{{ successMessage }}</span>
   <button type="submit" class="px-16 py-1 my-5 text-white bg-blue-700 rounded-3xl w-[90%] mx-auto">Log Waste</button>
   <p class="">Note: Recycling more often will help you reach the next milestone</p>
 </div>
