@@ -52,6 +52,21 @@
 				formData,
 				{ headers: { "Content-Type": "application/json" } }
 			);
+      /*
+      * KNOWN BUG: Issue adding a waste event
+      * Description: When a user attempts to add a waste event, The event is process and added to the database table.
+      *               The issue arises when the backend attempts to increment the wasteScore of the user who made the event
+      *               This results in a status code 500 always being returned. As the following code checks for a 200 or 201 code,
+      *               it is ignored and the user is stuck on this screen.
+      *
+      * Possible fix: The issue seems to arise from an exception thrown from the backend when querying the database.
+      *               A Codeigniter\\Database\\Exception is returned in the response body.
+      *               A review of the model method to increment the wasteScore and the stored procedure is required for a future build.
+      *
+      *  Gary O'Connor K00288477
+      *
+      * */
+
 			// Display message on success code
 			if (response.status === 200 || response.status === 201) {
 				// Display feedback to the user
@@ -61,7 +76,9 @@
 				setTimeout(() => {
 					router.push("/");
 				}, 3000);
-			}
+			} else {
+        await router.push("/")
+      }
 		} catch (e) {
 			console.log(e);
 		}

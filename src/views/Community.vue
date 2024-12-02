@@ -120,7 +120,6 @@
 					<th>Current Badge</th>
 					<th class="text-start">Username</th>
 					<th class="text-start">Score</th>
-					<th class="text-start">Best Streak</th>
 				</tr>
 			</thead>
 			<!--        Loop through the users ref. Use the index to display rank-->
@@ -150,7 +149,6 @@
 					</td>
 					<td class="text-start">{{ user.username }}</td>
 					<td class="text-start">{{ user.wasteLogScore }}</td>
-					<td class="text-start">156 Days</td>
 				</tr>
 			</tbody>
 		</table>
